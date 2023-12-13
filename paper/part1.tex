@@ -1,0 +1,66 @@
+\documentclass{article}
+
+% Packages
+\usepackage{titlesec}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{url}
+
+% Title
+\title{Decision Making in Autonomous Driving \\ Project Part I}
+\author{Neha Desaraju}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Paper Understanding}
+
+The paper \cite{leurent2019approximate} given demonstrates the state-of-the-art in robust control of autonomous driving systems. In the paper, the authors describe methods to implement robust optimization in a principled manner for non-linear systems and continuous states. Using a model-based approach, the authors are able to develop mechanisms for proper planning given a non-linear system (such as driving behavior) and continuous states (in this case, given by the position and velocity of each of the agents in the scene). To start with, the authors implement a simpler case to illustrate the concepts of their new methods; the authors discuss a method of discrete action space planning via sampling (which makes the set finite), which takes into account uncertainty while expanding the leaves in a Monte Carlo Search Tree. This will create a more definite lower bound while reasoning about the real probabilities of success of each path, rather than taking only the mean. This problem is a setup to the next problem that the authors formulate, which is when the state space is continuous. This calculates the closest interval bounds for the possible next states (trajectory ends). Once this is implemented, we trivially have a definitely lower bound on performance. The paper runs experiments on the environment we will use, described in \cite{highway-env}.
+
+\section{Proposed Experimental Methods}
+
+\subsection{Robustness}
+
+To improve robustness in the model, I propose two methods. The first is using an ensemble of independently trained models \cite{wu2021uncertaintyaware} to learn slightly different dynamics functions. As a model-based method, this method will utilize the cross entropy method (assuming a continuous action space) and a Monte Carlo Tree Search method as the planning method (assuming a discrete action space), which would be similar to the sample-based planning outlined in part II of the paper. These planning methods will ensure simplicity, and I can use the uncertainty developed in the ensemble model to balance exploration of various paths as well as develop a stronger lower bound for performance.
+
+Another set of experiments I would like to explore involve using a stochastic Gaussian Process model, as explored in \cite{nado2022uncertainty}, both in a model-based setting (to approximate the dynamics of the environment) as well as in a model-free setting (to learn the distribution of rewards for a particular series of actions). In the previous case, I will once again use cross entropy method, and in the second case I will learn a policy function through policy gradient.
+
+A table of these experiments is given in Table \ref{table:1}. I plan to start with the implementation of the GP model (on top of a simple dynamics network) training by sampling episodes from the environment simulation. This model will learn a using the continuous action space and utilizing CEM to plan trajectories.
+ 
+\begin{table}
+\centering
+\begin{tabular}{ c  m{2cm}  c  m{2.5cm} }
+    & \textbf{Learning method} & \textbf{Action Space} & \textbf{Planning/policy method} \\
+\hline \hline
+\multirow{2}{*}{Model ensemble} & Model-based & Finite & MCTS \\
+    & Model-based & Continuous & CEM \\
+\hline 
+\multirow{2}{*}{Gaussian Process Model} & Model-based & Continuous & CEM \\
+    & Model-free & Continuous & Policy gradient \\
+\hline
+\end{tabular}
+\caption{Table of proposed experiments}
+\label{table:1}
+\end{table}
+
+As the environment \cite{highway-env} we are using does not natively output noise or variance in the agents' movements, I will manually add perturbations in order to demonstrate my methods of evaluating and considering model uncertainty. It is shown by \cite{robey2020modelbased} that adding perturbations in the observation data can help the model to generalize to unseen situations better. Therefore, I will use a simple Gaussian distribution to slightly change the observed dynamics (given by $x$, $vx$, $y$, and $vy$). Some examples to do so are demonstrated in this \cite{ravindran2017cartpole} Github link. In addition, other forms of simple noise are explored in this paper \cite{khraishi2023simple}, and it may be possible to implement a signal-to-noise ratio function \cite{wiki:snr} to better set the correct standard deviation given some amount of noise we would like to include. Note that we are only adding noise to the \emph{observations}, not the true behavior of the agents in the scene. This distinction is important because in the case for robustness, we want to simulate sensor uncertainty, not necessarily the randomness of true driver behavior (see next section).
+
+\subsection{Safety}
+
+Since driver behavior can be somewhat random, not optimal, and not perfectly modeled by our dynamics, we want to limit the lower bound of guaranteed outcomes (rewards). That is, we want to avoid collisions at all costs, which includes encouraging behavior such as maintaining a large follow distance behind other cars and turning only when "safe"; that is, allowing room for other driver error.
+
+We may want to simulate this driver error by adding some random driver behavior in the environment itself, as described in \cite{Rana_2021}, if we find that the environment is not suitable to ensure our model is constrained enough.
+
+Many approaches to incorporating safety standards in controlling a car involves checking the safety constraints while planning (in the case of model-based learning), or only allowing safe (or likely safe) actions (in the case of model-free learning). \cite{nyberg2021safetyspec} develops a safety specification as a function $l(x(t))$, where $x(t)$ is a state, and $l(x(t))$ returns a measure of safety risk or severity of risk. This work calculates cumulative risk while planning trajectories, and takes into account the resulting scalar to better inform the selection of trajectories (using traditional planning techniques).
+
+In my first experiment, I plan to only select trajectories that meet certain hard safety constraints, then slowly relax this constraint via a function — for example, I will select trajectories that fall under a certain level of risk (within uncertainty) while also allowing for exploration. To keep it simple to start off with, this risk will only be determined by some inverse square of absolute distance to the nearest agent.
+
+Several other methods are proposed by \cite{shalevshwartz2016safe}, \cite{dalal2018safe}, \cite{berkenkamp2017safe}, and \cite{10.1145/3563357.3564055}.
+
+
+\bibliographystyle{plain} % We choose the "plain" reference style
+\bibliography{refs} % Entries are in the refs.bib file 
+
+\end{document}

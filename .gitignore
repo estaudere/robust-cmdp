@@ -1,0 +1,36 @@
+# Python
+*.pyc
+__pycache__/
+venv/
+*.egg-info/
+dist/
+build/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# PyCharm
+.idea/
+
+# Visual Studio Code
+.vscode/
+
+# Compiled Python files
+*.pyc
+
+# Compiled C extensions
+*.so
+
+# Compiled Object files
+*.o
+
+# Compiled Dynamic libraries
+*.dylib
+
+# Compiled Static libraries
+*.a
+
+# Compiled Executables
+*.exe

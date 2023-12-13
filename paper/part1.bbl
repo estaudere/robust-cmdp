@@ -1,0 +1,66 @@
+\begin{thebibliography}{10}
+
+\bibitem{berkenkamp2017safe}
+Felix Berkenkamp, Matteo Turchetta, Angela~P. Schoellig, and Andreas Krause.
+\newblock Safe model-based reinforcement learning with stability guarantees, 2017.
+
+\bibitem{dalal2018safe}
+Gal Dalal, Krishnamurthy Dvijotham, Matej Vecerik, Todd Hester, Cosmin Paduraru, and Yuval Tassa.
+\newblock Safe exploration in continuous action spaces, 2018.
+
+\bibitem{khraishi2023simple}
+Raad Khraishi and Ramin Okhrati.
+\newblock Simple noisy environment augmentation for reinforcement learning, 2023.
+
+\bibitem{highway-env}
+Edouard Leurent.
+\newblock An environment for autonomous driving decision-making.
+\newblock \url{https://github.com/eleurent/highway-env}, 2018.
+
+\bibitem{leurent2019approximate}
+Edouard Leurent, Yann Blanco, Denis Efimov, and Odalric-Ambrym Maillard.
+\newblock Approximate robust control of uncertain dynamical systems, 2019.
+
+\bibitem{10.1145/3563357.3564055}
+Sam Mottahedi and Gregory~S. Pavlak.
+\newblock Constrained differentiable cross-entropy method for safe model-based reinforcement learning.
+\newblock In {\em Proceedings of the 9th ACM International Conference on Systems for Energy-Efficient Buildings, Cities, and Transportation}, BuildSys '22, page 40–48, New York, NY, USA, 2022. Association for Computing Machinery.
+
+\bibitem{nado2022uncertainty}
+Zachary Nado, Neil Band, Mark Collier, Josip Djolonga, Michael~W. Dusenberry, Sebastian Farquhar, Qixuan Feng, Angelos Filos, Marton Havasi, Rodolphe Jenatton, Ghassen Jerfel, Jeremiah Liu, Zelda Mariet, Jeremy Nixon, Shreyas Padhy, Jie Ren, Tim G.~J. Rudner, Faris Sbahi, Yeming Wen, Florian Wenzel, Kevin Murphy, D.~Sculley, Balaji Lakshminarayanan, Jasper Snoek, Yarin Gal, and Dustin Tran.
+\newblock Unvertainty baselines: Benchmarks for uncertainty \& robustness in deep learning, 2022.
+
+\bibitem{nyberg2021safetyspec}
+T.~Nyberg, C.~Pek, L.~Dal~Col, C.~Norén, and J.~Tumova.
+\newblock Risk-aware motion planning for autonomous vehicles with safety specifications.
+\newblock In {\em 2021 32nd IEEE Intelligent Vehicles Symposium (IV)}. IEEE, May 2021.
+
+\bibitem{Rana_2021}
+Ashish Rana and Avleen Malhi.
+\newblock Building safer autonomous agents by leveraging risky driving behavior knowledge.
+\newblock In {\em 2021 International Conference on Communications, Computing, Cybersecurity, and Informatics (CCCI)}. IEEE, October 2021.
+
+\bibitem{ravindran2017cartpole}
+Aaditya Ravindran.
+\newblock Methods of introducing noise to the cartpole environment in openai gym.
+\newblock \url{https://github.com/AadityaRavindran/gym-cartpolemod}, 2017.
+
+\bibitem{robey2020modelbased}
+Alexander Robey, Hamed Hassani, and George~J. Pappas.
+\newblock Model-based robust deep learning: Generalizing to natural, out-of-distribution data, 2020.
+
+\bibitem{shalevshwartz2016safe}
+Shai Shalev-Shwartz, Shaked Shammah, and Amnon Shashua.
+\newblock Safe, multi-agent, reinforcement learning for autonomous driving, 2016.
+
+\bibitem{wiki:snr}
+Wikipedia.
+\newblock {Signal-to-noise ratio} --- {W}ikipedia{,} the free encyclopedia.
+\newblock \url{http://en.wikipedia.org/w/index.php?title=Signal-to-noise%20ratio&oldid=1184390748}, 2023.
+\newblock [Online; accessed 28-November-2023].
+
+\bibitem{wu2021uncertaintyaware}
+Jingda Wu, Zhiyu Huang, and Chen Lv.
+\newblock Uncertainty-aware model-based reinforcement learning with application to autonomous driving, 2021.
+
+\end{thebibliography}

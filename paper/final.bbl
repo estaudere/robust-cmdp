@@ -1,0 +1,41 @@
+\begin{thebibliography}{1}
+
+\bibitem{dalal2018safe}
+Gal Dalal, Krishnamurthy Dvijotham, Matej Vecerik, Todd Hester, Cosmin Paduraru, and Yuval Tassa.
+\newblock Safe exploration in continuous action spaces, 2018.
+
+\bibitem{khraishi2023simple}
+Raad Khraishi and Ramin Okhrati.
+\newblock Simple noisy environment augmentation for reinforcement learning, 2023.
+
+\bibitem{highway-env}
+Edouard Leurent.
+\newblock An environment for autonomous driving decision-making.
+\newblock \url{https://github.com/eleurent/highway-env}, 2018.
+
+\bibitem{leurent2019approximate}
+Edouard Leurent, Yann Blanco, Denis Efimov, and Odalric-Ambrym Maillard.
+\newblock Approximate robust control of uncertain dynamical systems, 2019.
+
+\bibitem{liu2022simple}
+Jeremiah~Zhe Liu, Shreyas Padhy, Jie Ren, Zi~Lin, Yeming Wen, Ghassen Jerfel, Zack Nado, Jasper Snoek, Dustin Tran, and Balaji Lakshminarayanan.
+\newblock A simple approach to improve single-model deep uncertainty via distance-awareness, 2022.
+
+\bibitem{liu2021constrained}
+Zuxin Liu, Hongyi Zhou, Baiming Chen, Sicheng Zhong, Martial Hebert, and Ding Zhao.
+\newblock Constrained model-based reinforcement learning with robust cross-entropy method, 2021.
+
+\bibitem{salimbeni2017doubly}
+Hugh Salimbeni and Marc Deisenroth.
+\newblock Doubly stochastic variational inference for deep gaussian processes, 2017.
+
+\bibitem{NEURIPS2018_34ffeb35}
+Min Wen and Ufuk Topcu.
+\newblock Constrained cross-entropy method for safe reinforcement learning.
+\newblock In S.~Bengio, H.~Wallach, H.~Larochelle, K.~Grauman, N.~Cesa-Bianchi, and R.~Garnett, editors, {\em Advances in Neural Information Processing Systems}, volume~31. Curran Associates, Inc., 2018.
+
+\bibitem{wu2021uncertaintyaware}
+Jingda Wu, Zhiyu Huang, and Chen Lv.
+\newblock Uncertainty-aware model-based reinforcement learning with application to autonomous driving, 2021.
+
+\end{thebibliography}
